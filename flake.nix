@@ -26,7 +26,6 @@
    # Available through 'home-manager --flake .#janmejay@jnix'
    homeConfigurations = {
      "janmejay@jnix" = home-manager.lib.homeManagerConfiguration {
-       system = "x86_64-linux";
        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager wants 'pkgs'
        extraSpecialArgs = { inherit inputs; };
        modules = [
