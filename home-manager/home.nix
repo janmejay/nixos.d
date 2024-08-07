@@ -37,12 +37,14 @@
     cat = "bat";
   };
 
-  home.file.“.config” = {
-    source = ./dots/dot_config;
-    recursive = true;
-  };
-  home.file.“.gitconfig” = {
-    source = ./dots/gitconfig;
+  home.file = {
+    “.config” = {
+      source = ./dots/dot_config;
+      recursive = true;
+    };
+    “.gitconfig” = {
+      source = ./dots/gitconfig;
+    };
   };
 
   programs.zsh = {
