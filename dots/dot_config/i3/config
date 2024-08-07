@@ -7,7 +7,7 @@ hide_edge_borders both
 
 floating_modifier $mod
 
-bindsym $mod+Shift+Return exec rxvt
+bindsym $mod+Shift+Return exec /home/janmejay/.dev_utils/rxvt
 
 bindsym $mod+Shift+c kill
 

@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./keyd.nix
     ];
   nixpkgs.config.allowUnfree = true;
   nix.package = pkgs.nixFlakes;
