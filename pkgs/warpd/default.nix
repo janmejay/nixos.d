@@ -24,15 +24,10 @@ let
       hash = "sha256-YHTQ5N4SZSa3S3sy/lNjarKPkANIuB2khwyOW5TW2vo=";
     };
 
-    postPatch = ''
-      substituteInPlace Makefile \
-        --replace PREFIX?= PREFIX?=${placeholder "out"}
-    '';
-
     buildInputs = [libXfixes libXext libXinerama libXi libXtst libX11 libXft];
 
     buildPhase = ''
-      DISABLE_WAYLAND=1 make
+      PREFIX=${placeholder "out"} DESTDIR="" DISABLE_WAYLAND=1 make
     '';
 
     enableParallelBuilding = true;
