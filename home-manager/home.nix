@@ -14,36 +14,37 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   home.packages = with pkgs; [
-        bat
-        fzf
-        silver-searcher
-        jq
-        tree
-        eza
-        git
-        firefox
-        google-chrome
-        copyq
-        rxvt-unicode
-        tmux
-        python3
-        lsof
-        gdb
-        bash
-	cascadia-code
-	dejavu_fonts
-        powerline-fonts
-	ubuntu-sans-mono
-	intel-one-mono
-	source-code-pro
-	noto-fonts
-        noto-fonts-cjk
-        noto-fonts-emoji
-        liberation_ttf
-        fira-code
-        fira-code-symbols
-        mplus-outline-fonts.githubRelease
-        dina-font
+    bat
+    fzf
+    silver-searcher
+    jq
+    tree
+    eza
+    git
+    firefox
+    google-chrome
+    copyq
+    rxvt-unicode
+    tmux
+    python3
+    lsof
+    gdb
+    bash
+
+    cascadia-code
+    dejavu_fonts
+    powerline-fonts
+    ubuntu-sans-mono
+    intel-one-mono
+    source-code-pro
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    liberation_ttf
+    fira-code
+    fira-code-symbols
+    mplus-outline-fonts.githubRelease
+    dina-font
   ];
 
   home.sessionVariables = {
@@ -67,15 +68,10 @@
       ref = "nixos";
     };
     ".tmux.conf".source = ../dots/tmux.conf;
+    ".Xdefaults".source = ../dots/Xdefaults;
   };
 
   fonts.fontconfig.enable = true;
-
-  #fonts.packages = with pkgs; [
-  #  (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "SourceCodePro" "DejaVuSansMono" "UbuntuMono" "IntelOneMono"]; })
-  #];
-
-  
 
   programs.zsh = {
     enable = true;
