@@ -4,7 +4,13 @@
   fetchFromGitHub,
   cmake,
   pkg-config,
-  cairo
+  libXfixes,
+  libXext,
+  libXinerama,
+  libXi,
+  libXtst,
+  libX11,
+  libXft,
 }:
 let
   warpd = stdenv.mkDerivation rec {
