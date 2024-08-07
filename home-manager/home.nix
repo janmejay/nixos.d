@@ -38,11 +38,11 @@
   };
 
   home.file = {
-    “.config” = {
+    ".config" = {
       source = ./dots/dot_config;
       recursive = true;
     };
-    “.gitconfig” = {
+    ".gitconfig" = {
       source = ./dots/gitconfig;
     };
   };
