@@ -1,0 +1,126 @@
+set $mod Mod4
+set $alt Mod1
+
+font pango:DejaVu Sans Mono, Terminus Bold Semi-Condensed 9
+
+hide_edge_borders both
+
+floating_modifier $mod
+
+bindsym $mod+Shift+Return exec rxvt
+
+bindsym $mod+Shift+c kill
+
+exec xautolock -detectsleep -time 4 -locker 'i3lock -I 5 -c 000000 -f'
+bindsym $alt+Ctrl+l exec "xautolock -locknow"
+
+focus_follows_mouse no
+
+bindsym $mod+p exec "/home/janmejay/.dev_utils/mymenu"
+
+# change focus
+bindsym $mod+l focus left
+bindsym $mod+d focus down
+bindsym $mod+u focus up
+bindsym $mod+r focus right
+
+# move focused window
+bindsym $mod+Shift+l move left
+bindsym $mod+Shift+d move down
+bindsym $mod+Shift+u move up
+bindsym $mod+Shift+r move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# toggle fullscreen mode
+bindsym $mod+g fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+# bindsym $mod+s layout stacking
+# bindsym $mod+w layout tabbed
+bindsym $mod+space layout toggle all
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+s sticky toggle
+# change focus between tiling / floating windows
+bindsym $mod+e focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+force_focus_wrapping true
+bindsym $alt+Tab exec "/home/janmejay/.dev_utils/i3_alt_tab"
+
+bindsym $mod+x exec "/home/janmejay/.dev_utils/cursor"
+
+bindsym $alt+Shift+3 exec "/home/janmejay/.dev_utils/xshot scr"
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# switch to workspace
+bindsym $mod+1 workspace 1: Term
+bindsym $mod+2 workspace 2: Ed0
+bindsym $mod+3 workspace 3: Ed1
+bindsym $mod+4 workspace 4: Web0
+bindsym $mod+5 workspace 5: Web1
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9: Knobs
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1: Term
+bindsym $mod+Shift+2 move container to workspace 2: Ed0
+bindsym $mod+Shift+3 move container to workspace 3: Ed1
+bindsym $mod+Shift+4 move container to workspace 4: Web0
+bindsym $mod+Shift+5 move container to workspace 5: Web1
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9: Knobs
+bindsym $mod+Shift+0 move container to workspace 10
+
+# reload the configuration file
+bindsym $mod+Shift+w reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+t restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+q exit
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+bindsym $alt+Ctrl+b exec "/home/janmejay/projects/CopyQ/build/copyq show"
+bindsym $alt+Ctrl+space exec "/home/janmejay/.dev_utils/toggle_touchpad.sh"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        bindsym Left resize shrink width 10 px or 2 ppt
+        bindsym Down resize grow height 10 px or 2 ppt
+        bindsym Up resize shrink height 10 px or 2 ppt
+        bindsym Right resize grow width 10 px or 2 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+s mode "resize"
+
+bar {
+    separator_symbol " | "
+    font pango:DejaVu Sans Mono, Terminus Bold Semi-Condensed 11.5
+    position top
+    status_command "/home/janmejay/.dev_utils/i3_status"
+}
+
+for_window [class="^jetbrains-.+"][window_type=dialog] focus
+for_window [class="copyq"] floating enable
+for_window [class="copyq"] resize set height 1600
+for_window [class="firefox" window_role="alert"] floating enable
+no_focus [class="firefox" window_role="alert"]
+for_window [class="PanGPUI" title="PanGPUI"] move container to workspace 9: Knobs

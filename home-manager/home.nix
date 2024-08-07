@@ -20,6 +20,12 @@
         jq
         tree
         eza
+        git
+        firefox
+        google-chrome
+        copyq
+        rxvt-unicode
+        tmux
   ];
 
   home.sessionVariables = {
@@ -29,6 +35,14 @@
     l = "eza";
     ls = "eza";
     cat = "bat";
+  };
+
+  home.file.“.config” = {
+    source = ./dots/dot_config;
+    recursive = true;
+  };
+  home.file.“.gitconfig” = {
+    source = ./dots/gitconfig;
   };
 
   programs.zsh = {
