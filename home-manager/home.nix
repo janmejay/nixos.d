@@ -42,9 +42,12 @@
       source = ../dots/dot_config;
       recursive = true;
     };
-    ".gitconfig" = {
-      source = ../dots/gitconfig;
+    ".gitconfig".source = ../dots/gitconfig;
+    ".dev_utils" = builtins.fetchGit {
+      url = "https://github.com/janmejay/dev_utils.git";
+      rev = "4346cd9332d1415c6c25313a99c39e5bcf77f57a";
     };
+    ".tmux.conf".source = ../dots/tmux.conf;
   };
 
   programs.zsh = {
