@@ -1,4 +1,6 @@
-Bootstrap
+_Bootstrap_
+
 $ export NIX_CONFIG="experimental-features = nix-command flakes"
 $ nix shell nixpkgs#home-manager
 $ sudo nixos-rebuild switch --flake .#<hostname>
+$ home-manager switch --flake .#janmejay@<hostname>
