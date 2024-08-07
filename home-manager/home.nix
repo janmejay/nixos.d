@@ -30,7 +30,6 @@
     lsof
     gdb
     bash
-
     cascadia-code
     dejavu_fonts
     powerline-fonts
