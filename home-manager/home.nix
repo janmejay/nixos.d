@@ -26,7 +26,7 @@
         copyq
         rxvt-unicode
         tmux
-        python
+        python3
         lsof
         gdb
         bash
