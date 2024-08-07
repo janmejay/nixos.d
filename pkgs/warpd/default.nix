@@ -30,7 +30,7 @@ let
         --replace /usr ""
     '';
 
-    buildInputs = [cairo];
+    buildInputs = [libXfixes libXext libXinerama libXi libXtst libX11 libXft];
 
     enableParallelBuilding = true;
 
