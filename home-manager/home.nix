@@ -30,6 +30,20 @@
         lsof
         gdb
         bash
+	cascadia-code
+	dejavu_fonts
+        powerline-fonts
+	ubuntu-sans-mono
+	intel-one-mono
+	source-code-pro
+	noto-fonts
+        noto-fonts-cjk
+        noto-fonts-emoji
+        liberation_ttf
+        fira-code
+        fira-code-symbols
+        mplus-outline-fonts.githubRelease
+        dina-font
   ];
 
   home.sessionVariables = {
@@ -54,6 +68,14 @@
     };
     ".tmux.conf".source = ../dots/tmux.conf;
   };
+
+  fonts.fontconfig.enable = true;
+
+  #fonts.packages = with pkgs; [
+  #  (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "SourceCodePro" "DejaVuSansMono" "UbuntuMono" "IntelOneMono"]; })
+  #];
+
+  
 
   programs.zsh = {
     enable = true;
