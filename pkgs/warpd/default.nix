@@ -22,6 +22,8 @@ stdenv.mkDerivation rec {
       --replace /usr ""
   '';
 
+  buildInputs = [cairo];
+
   enableParallelBuilding = true;
 
   postInstall = ''
