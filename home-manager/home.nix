@@ -50,6 +50,7 @@
     ".dev_utils".source = builtins.fetchGit {
       url = "https://github.com/janmejay/dev_utils.git";
       rev = "faa11a47428e318d432e9aafc72af62797ab3d0b";
+      ref = "nixos";
     };
     ".tmux.conf".source = ../dots/tmux.conf;
   };
