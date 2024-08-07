@@ -19,7 +19,7 @@
         silver-searcher
         jq
         tree
-        exa
+        eza
   ];
 
   programs.neovim = {
