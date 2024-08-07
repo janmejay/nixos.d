@@ -1,6 +1,7 @@
 { config, pkgs, inputs, lib, ... }:
-
-{
+let
+  warpd = pkgs.callPackage ../pkgs/warpd {};
+in {
   home.username = "janmejay";
   home.homeDirectory = "/home/janmejay";
   home.stateVersion = "24.05";
@@ -14,6 +15,7 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   home.packages = with pkgs; [
+    warpd
     bat
     fzf
     silver-searcher
