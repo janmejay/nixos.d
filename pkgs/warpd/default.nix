@@ -26,8 +26,7 @@ let
 
     postPatch = ''
       substituteInPlace Makefile \
-        --replace DESTDIR= DESTDIR=${placeholder "out"} \
-        --replace /usr ""
+        --replace PREFIX?= PREFIX?=${placeholder "out"} \
     '';
 
     buildInputs = [libXfixes libXext libXinerama libXi libXtst libX11 libXft];
