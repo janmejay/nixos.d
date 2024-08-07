@@ -30,6 +30,10 @@ let
       PREFIX=${placeholder "out"} DESTDIR="" DISABLE_WAYLAND=1 make
     '';
 
+    installPhase = ''
+      PREFIX=${placeholder "out"} DESTDIR="" make install
+    '';
+
     enableParallelBuilding = true;
 
     postInstall = ''
