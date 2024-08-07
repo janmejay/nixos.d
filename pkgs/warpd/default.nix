@@ -33,7 +33,7 @@ let
     buildInputs = [libXfixes libXext libXinerama libXi libXtst libX11 libXft];
 
     buildPhase = ''
-      PLATFORM=x11 make
+      DISABLE_WAYLAND=1 make
     '';
 
     enableParallelBuilding = true;
