@@ -4,12 +4,9 @@
   fetchFromGitHub,
   cmake,
   pkg-config,
+  cairo
 }:
 let
-  nixpkgs = import <nixpkgs> { };
-
-  inherit (nixpkgs) cairo;
-
   warpd = stdenv.mkDerivation rec {
     pname = "warpd";
     version = "1.3.5";
