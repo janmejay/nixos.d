@@ -13,7 +13,7 @@ stdenv.mkDerivation rec {
     owner = "rvaiya";
     repo = "warpd";
     rev = "v" + version;
-    hash = "";
+    hash = "sha256-YHTQ5N4SZSa3S3sy/lNjarKPkANIuB2khwyOW5TW2vo=";
   };
 
   postPatch = ''
