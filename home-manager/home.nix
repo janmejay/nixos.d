@@ -39,11 +39,11 @@
 
   home.file = {
     ".config" = {
-      source = ./dots/dot_config;
+      source = ../dots/dot_config;
       recursive = true;
     };
     ".gitconfig" = {
-      source = ./dots/gitconfig;
+      source = ../dots/gitconfig;
     };
   };
 
