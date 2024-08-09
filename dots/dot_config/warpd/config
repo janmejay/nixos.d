@@ -14,9 +14,9 @@ end: C-e
 indicator: topleft
 hint_exit: esc
 exit: esc
-top: A-<
+top: A-S-,
 middle: C-l
-bottom: A->
+bottom: A-S-.
 indicator_color: #f3e260
 indicator_size: 8
 hint: C-A-g g

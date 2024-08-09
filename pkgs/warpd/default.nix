@@ -15,13 +15,12 @@
 let
   warpd = stdenv.mkDerivation rec {
     pname = "warpd";
-    version = "1.3.5";
 
     src = fetchFromGitHub {
       owner = "rvaiya";
       repo = "warpd";
-      rev = "v" + version;
-      hash = "sha256-YHTQ5N4SZSa3S3sy/lNjarKPkANIuB2khwyOW5TW2vo=";
+      rev = "01650eabf70846deed057a77ada3c0bbb6d97d6e";
+      hash = "";
     };
 
     buildInputs = [libXfixes libXext libXinerama libXi libXtst libX11 libXft];
