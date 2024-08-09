@@ -21,7 +21,7 @@ let
       owner = "rvaiya";
       repo = "warpd";
       rev = "01650eabf70846deed057a77ada3c0bbb6d97d6e";
-      hash = "sha256-YHTQ5N4SZSa3S3sy/lNjarKPkANIuB2khwyOW5TW2vo=";
+      hash = "sha256-61+kJvOi4oog0+tGucc1rWemdx2vp15wlluJE+1PzTs=";
     };
 
     buildInputs = [libXfixes libXext libXinerama libXi libXtst libX11 libXft];
