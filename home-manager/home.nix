@@ -1,6 +1,7 @@
 { config, pkgs, inputs, lib, ... }:
 let
   warpd = pkgs.callPackage ../pkgs/warpd {};
+  hackery = pkgs.callPackage ../pkgs/hackery {};
 in {
   home.username = "janmejay";
   home.homeDirectory = "/home/janmejay";
@@ -16,6 +17,7 @@ in {
   programs.home-manager.enable = true;
   home.packages = with pkgs; [
     warpd
+    hackery
     bat
     fzf
     silver-searcher
@@ -70,6 +72,14 @@ in {
     };
     ".tmux.conf".source = ../dots/tmux.conf;
     ".Xdefaults".source = ../dots/Xdefaults;
+    ".emacs.d".source = builtins.fetchGit {
+      url = "https://github.com/janmejay/emacs";
+      rev = "059154366447269dcb6a2a4f7639f3ae26b36cc8";
+      ref = "master";
+      submodules = true;
+    };
+    ".emacs".source = ../dots/emacs;
+
   };
 
   fonts.fontconfig.enable = true;
