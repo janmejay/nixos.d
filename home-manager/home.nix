@@ -2,6 +2,7 @@
 let
   warpd = pkgs.callPackage ../pkgs/warpd {};
   hackery = pkgs.callPackage ../pkgs/hackery {};
+  copyq = pkgs.callPackage ../pkgs/copyq {};
 in {
   home.username = "janmejay";
   home.homeDirectory = "/home/janmejay";
@@ -18,6 +19,7 @@ in {
   home.packages = with pkgs; [
     warpd
     hackery
+    copyq
     bat
     fzf
     silver-searcher
@@ -27,7 +29,6 @@ in {
     git
     firefox
     google-chrome
-    copyq
     rxvt-unicode
     tmux
     python3
