@@ -5,6 +5,7 @@
   cmake,
   libXfixes,
   xorgproto,
+  libX11,
 }:
 let
   hackery = stdenv.mkDerivation rec {
@@ -18,7 +19,7 @@ let
       hash = "sha256-VLLgyOa7OXdFgXYwej10YNLDabgmSgAdnO9feaQqk2w=";
     };
 
-    buildInputs = [libXfixes];
+    buildInputs = [libXfixes xorgproto libX11];
 
     buildPhase = ''
       (cd hackery && make hide_mouse_ptr)
