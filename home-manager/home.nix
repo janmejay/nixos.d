@@ -72,7 +72,7 @@ in {
     };
     ".tmux.conf".source = ../dots/tmux.conf;
     ".Xdefaults".source = ../dots/Xdefaults;
-    ".emacs.d".source = builtins.fetchGit {
+    ".my.emacs.d".source = builtins.fetchGit {
       url = "https://github.com/janmejay/emacs";
       rev = "06e4d5a95c66e12d58198f18d3bb31dd970111d2";
       ref = "master";

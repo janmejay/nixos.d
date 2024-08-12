@@ -5,7 +5,7 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 
-(load-file "~/.emacs.d/emacs.el")
+(load-file "~/.my.emacs.d/emacs.el")
 
 (put 'narrow-to-region 'disabled nil)
 (custom-set-variables
