@@ -4,6 +4,7 @@
   fetchFromGitHub,
   cmake,
   libXfixes,
+  xorgproto,
 }:
 let
   hackery = stdenv.mkDerivation rec {
@@ -14,7 +15,7 @@ let
       owner = "janmejay";
       repo = "dev_utils";
       rev = "faa11a47428e318d432e9aafc72af62797ab3d0b";
-      hash = "";
+      hash = "sha256-VLLgyOa7OXdFgXYwej10YNLDabgmSgAdnO9feaQqk2w=";
     };
 
     buildInputs = [libXfixes];
