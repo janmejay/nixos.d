@@ -26,7 +26,7 @@ let
     '';
 
     installPhase = ''
-      cp hackery/hide_mouse_ptr ${placeholder "out"}/bin/hide_mouse_ptr
+      install -D hackery/hide_mouse_ptr ${placeholder "out"}/bin/hide_mouse_ptr
     '';
 
     enableParallelBuilding = true;
