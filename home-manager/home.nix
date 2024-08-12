@@ -74,7 +74,7 @@ in {
     ".Xdefaults".source = ../dots/Xdefaults;
     ".my.emacs.d".source = builtins.fetchGit {
       url = "https://github.com/janmejay/emacs";
-      rev = "06e4d5a95c66e12d58198f18d3bb31dd970111d2";
+      rev = "f321bab76fb6e543d372b2e0a7083d2969a9bf3a";
       ref = "nixos";
     };
     ".emacs".source = ../dots/emacs;
