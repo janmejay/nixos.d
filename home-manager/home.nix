@@ -67,7 +67,7 @@ in {
     ".gitconfig".source = ../dots/gitconfig;
     ".dev_utils".source = builtins.fetchGit {
       url = "https://github.com/janmejay/dev_utils.git";
-      rev = "6831679db0d2bcb0307c8b2066d49f594f651fb8";
+      rev = "d883c676feff6c1e3e97dfed02dfd4012186ff16";
       ref = "nixos";
     };
     ".tmux.conf".source = ../dots/tmux.conf;
