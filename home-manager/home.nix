@@ -67,14 +67,14 @@ in {
     ".gitconfig".source = ../dots/gitconfig;
     ".dev_utils".source = builtins.fetchGit {
       url = "https://github.com/janmejay/dev_utils.git";
-      rev = "faa11a47428e318d432e9aafc72af62797ab3d0b";
+      rev = "6831679db0d2bcb0307c8b2066d49f594f651fb8";
       ref = "nixos";
     };
     ".tmux.conf".source = ../dots/tmux.conf;
     ".Xdefaults".source = ../dots/Xdefaults;
     ".my.emacs.d".source = builtins.fetchGit {
       url = "https://github.com/janmejay/emacs";
-      rev = "172c40ebd85e3f820b0ac860d35ca2453298de27";
+      rev = "a0b42cac2241928ba054f660559e2ac9e068b7b1";
       ref = "nixos";
     };
     ".emacs".source = ../dots/emacs;
