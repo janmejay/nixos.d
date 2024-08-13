@@ -2,7 +2,7 @@
 let
   warpd = pkgs.callPackage ../pkgs/warpd {};
   hackery = pkgs.callPackage ../pkgs/hackery {};
-  copyq = pkgs.callPackage ../pkgs/copyq {};
+  copyq = pkgs.qt6.callPackage ../pkgs/copyq {};
 in {
   home.username = "janmejay";
   home.homeDirectory = "/home/janmejay";
