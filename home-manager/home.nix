@@ -3,6 +3,7 @@ let
   warpd = pkgs.callPackage ../pkgs/warpd {};
   hackery = pkgs.callPackage ../pkgs/hackery {};
   copyq = pkgs.qt6.callPackage ../pkgs/copyq {};
+  find-cursor = pkgs.callPackage ../pkgs/find-cursor {};
 in {
   home.username = "janmejay";
   home.homeDirectory = "/home/janmejay";
@@ -17,9 +18,18 @@ in {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   home.packages = with pkgs; [
+    # local (custom) v
     warpd
     hackery
     copyq
+    find-cursor
+
+    # public v
+    networkmanagerapplet
+    xclip
+    xfce.xfce4-screenshooter
+    nomacs # image viewer
+    gnumake
     bat
     fzf
     silver-searcher
@@ -68,7 +78,8 @@ in {
     ".gitconfig".source = ../dots/gitconfig;
     ".dev_utils".source = builtins.fetchGit {
       url = "https://github.com/janmejay/dev_utils.git";
-      rev = "d883c676feff6c1e3e97dfed02dfd4012186ff16";
+      rev = "e5e461a764886b081252d606e3868456545e4a35";
+      submodules = true;
       ref = "nixos";
     };
     ".tmux.conf".source = ../dots/tmux.conf;

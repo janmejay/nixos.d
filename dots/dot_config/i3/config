@@ -56,7 +56,7 @@ bindsym $mod+a focus parent
 force_focus_wrapping true
 bindsym $alt+Tab exec "/home/janmejay/.dev_utils/i3_alt_tab"
 
-bindsym $mod+x exec "/home/janmejay/.dev_utils/cursor"
+bindsym $mod+x exec "find-cursor"
 
 bindsym $alt+Shift+3 exec "/home/janmejay/.dev_utils/xshot scr"
 
