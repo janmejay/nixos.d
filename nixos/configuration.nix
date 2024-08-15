@@ -86,7 +86,7 @@
   users.users.janmejay = {
     isNormalUser = true;
     description = "Janmejay Singh";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
     packages = with pkgs; [];
     shell = pkgs.zsh;
   };
@@ -122,6 +122,30 @@
         group = "root";
       };
     };
+    "routing" = {
+      "/etc/iproute2".d = {
+        mode = "0755";
+        user = "root";
+        group = "root";
+      };
+    };
+    "work" = {
+      "/mnt/work".d = {
+        mode = "0750";
+        user = "root";
+        group = "wheel";
+      };
+      "/mnt/work/projects".d = {
+        mode = "0750";
+        user = "janmejay";
+        group = "root";
+      };
+      "/mnt/work/pan-jail".d = {
+        mode = "0750";
+        user = "janmejay";
+        group = "root";
+      };
+    };
   };
 
   services.dnsmasq.alwaysKeepRunning = true;
@@ -136,12 +160,23 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   networking.firewall.enable = false;
 
-  virtualisation.docker = {
-    enable = true;
-    storageDriver = "overlay2";
-    daemon.settings = {
-      insecure-registries = [ "10.0.0.0/8" ];
-      data-root = "/mnt/work/docker";
+  virtualisation = {
+    docker = {
+      enable = true;
+      storageDriver = "overlay2";
+      daemon.settings = {
+        insecure-registries = [ "10.0.0.0/8" ];
+        data-root = "/mnt/work/docker";
+      };
+    };
+    libvirtd = {
+      enable = true;
+      qemu = {
+        package = pkgs.qemu_kvm;
+        runAsRoot = true;
+        swtpm.enable = true;
+        ovmf.enable = true;
+      };
     };
   };
 

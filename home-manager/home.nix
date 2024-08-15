@@ -36,6 +36,8 @@ in {
     find-cursor
 
     # public v
+    bc
+    rlwrap
     xautolock
     i3lock
     zoom-us
