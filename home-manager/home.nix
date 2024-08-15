@@ -4,6 +4,17 @@ let
   hackery = pkgs.callPackage ../pkgs/hackery {};
   copyq = pkgs.qt6.callPackage ../pkgs/copyq {};
   find-cursor = pkgs.callPackage ../pkgs/find-cursor {};
+
+  rxvt-unicode-unwrapped =
+      let fix-osc-response = pkgs.fetchpatch {
+        name = "fix-osc-responses-with-7-bit-st.patch";
+        url = "https://github.com/exg/rxvt-unicode/commit/417b540d6dba67d440e3617bc2cf6d7cea1ed968.patch";
+        sha256 = "hnRfQc4jPiBrm06nJ3I7PHdypUc3jwnIfQV3uMYz+/Y=";
+      };
+    in
+      pkgs.rxvt-unicode-unwrapped.overrideAttrs (old: {
+        patches = (old.patches or [ ]) ++ [fix-osc-response];
+      });
 in {
   home.username = "janmejay";
   home.homeDirectory = "/home/janmejay";
@@ -25,6 +36,10 @@ in {
     find-cursor
 
     # public v
+    xautolock
+    i3lock
+    zoom-us
+    pavucontrol
     networkmanagerapplet
     xclip
     xfce.xfce4-screenshooter
@@ -39,7 +54,7 @@ in {
     git
     firefox
     google-chrome
-    rxvt-unicode
+    rxvt-unicode-unwrapped
     tmux
     python3
     lsof
@@ -97,6 +112,9 @@ in {
 
   programs.zsh = {
     enable = true;
+    initExtra = ''
+    source ~/.dev_utils/rc/shared_shell_config
+    '';
   };
 
   programs.zsh.oh-my-zsh= {
@@ -104,5 +122,4 @@ in {
     plugins = ["git" "python" "docker" "fzf"];
     theme = "dpoggi";
   };
-
 }

@@ -109,9 +109,22 @@
   services.dnsmasq.enable = true;
   systemd.services.keyd.serviceConfig.Restart = lib.mkForce "always";
 
+  systemd.tmpfiles.settings = {
+    "dnsmasq" = {
+      "/etc/dnsmasq.d".d = {
+        mode = "0755";
+        user = "root";
+        group = "root";
+      };
+    };
+  };
+
   services.dnsmasq.alwaysKeepRunning = true;
-  services.dnsmasq.settings.server = [ "8.8.8.8" "8.8.4.4" ];
-  services.dnsmasq.settings = { cache-size = 500; };
+  services.dnsmasq.settings = {
+    server = [ "8.8.8.8" "8.8.4.4" ];
+    cache-size = 500;
+    conf-dir = "/etc/dnsmasq.d,*.conf";
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
