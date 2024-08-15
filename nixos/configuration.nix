@@ -20,6 +20,11 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  fileSystems."/mnt/work" = {
+    device = "/dev/disk/by-label/work";
+    fsType = "ext4";
+  };
+
   networking.hostName = "jnix"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -81,7 +86,7 @@
   users.users.janmejay = {
     isNormalUser = true;
     description = "Janmejay Singh";
-    extraGroups = [ "networkmanager" "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [];
     shell = pkgs.zsh;
   };
@@ -130,6 +135,15 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   networking.firewall.enable = false;
+
+  virtualisation.docker = {
+    enable = true;
+    storageDriver = "overlay2";
+    daemon.settings = {
+      insecure-registries = [ "10.0.0.0/8" ];
+      data-root = "/mnt/work/docker";
+    };
+  };
 
   system.stateVersion = "24.05"; # never change
 }
