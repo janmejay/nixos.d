@@ -105,6 +105,11 @@
     git
   ];
 
+  environment.etc."dnsmasq.d/caching.conf".text = ''
+    #localise-queries
+    #host-record=repository.rubrik.com,172.17.0.1
+    '';
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -148,7 +153,7 @@
       };
     };
   };
-  # systemd.services.keyd.serviceConfig.Restart = lib.mkForce "always";
+
 
   systemd.tmpfiles.settings = {
     "dnsmasq" = {

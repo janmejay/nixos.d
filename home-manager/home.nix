@@ -23,6 +23,9 @@ in {
     config = {
       allowUnfree = true;
       allowUnfreePredicate = (_: true);
+      permittedInsecurePackages = [
+        "squid-6.8"
+      ];
     };
   };
 
@@ -36,6 +39,8 @@ in {
     find-cursor
 
     # public v
+    squid
+    dig
     bc
     rlwrap
     xautolock
@@ -45,6 +50,7 @@ in {
     networkmanagerapplet
     xclip
     xfce.xfce4-screenshooter
+    xfce.thunar
     nomacs # image viewer
     gnumake
     bat
