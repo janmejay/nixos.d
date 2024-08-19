@@ -101,7 +101,7 @@ in {
     ".gitconfig".source = ../dots/gitconfig;
     ".dev_utils".source = builtins.fetchGit {
       url = "https://github.com/janmejay/dev_utils.git";
-      rev = "33557e9e665a2cec2408ace906952b16b886678c";
+      rev = "9563403034e156dd618366446e9d0dbed5a1a154";
       submodules = true;
       ref = "nixos";
     };
@@ -113,7 +113,13 @@ in {
       ref = "nixos";
     };
     ".emacs".source = ../dots/emacs;
-
+    "projects/rubrik/squid.d/run.sh" = {
+      source = ../dots/squid.run.sh;
+      executable = true;
+    };
+    "projects/rubrik/squid.d/conf/squid.conf" = {
+      source = ../dots/squid.conf;
+    };
   };
 
   fonts.fontconfig.enable = true;
