@@ -6,9 +6,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
-      ./keyd.nix
     ];
   nixpkgs.config.allowUnfree = true;
   nix.package = pkgs.nixFlakes;
@@ -112,7 +111,39 @@
 
   services.openssh.enable = true;
   services.dnsmasq.enable = true;
-  systemd.services.keyd.serviceConfig.Restart = lib.mkForce "always";
+  services.keyd = {
+    enable = true;
+    keyboards.default = {
+      ids = [ "*" ];
+      settings = {
+        main = {
+          capslock = "layer(capslock)";
+          alt = "overload(alt, esc)";
+          meta = "overload(meta, esc)";
+          esc = "toggle(nav)"; # before navA this was `capslock`
+        };
+        "capslock:C" = {};
+        nav = {
+          capslock = "layer(navC)";
+          alt = "overload(navA, esc)";
+        };
+        "navC:C" = {
+          n = "down";
+          p = "up";
+          f = "right";
+          b = "left";
+          a = "home";
+          e = "end";
+        };
+        "navA:A" = {
+          f = "macro(right 20ms right)";
+          b = "macro(left 20ms left)";
+          esc = "esc";
+        };
+      };
+    };
+  };
+  # systemd.services.keyd.serviceConfig.Restart = lib.mkForce "always";
 
   systemd.tmpfiles.settings = {
     "dnsmasq" = {

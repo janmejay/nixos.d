@@ -95,7 +95,7 @@ in {
     ".gitconfig".source = ../dots/gitconfig;
     ".dev_utils".source = builtins.fetchGit {
       url = "https://github.com/janmejay/dev_utils.git";
-      rev = "e5e461a764886b081252d606e3868456545e4a35";
+      rev = "33557e9e665a2cec2408ace906952b16b886678c";
       submodules = true;
       ref = "nixos";
     };
