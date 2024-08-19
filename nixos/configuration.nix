@@ -24,6 +24,11 @@
     fsType = "ext4";
   };
 
+  fileSystems."/home/janmejay/projects" = {
+    device = "/mnt/work/projects";
+    options = [ "bind" ];
+  };
+
   networking.hostName = "jnix"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
