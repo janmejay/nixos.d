@@ -39,6 +39,8 @@ in {
     find-cursor
 
     # public v
+    vscode
+    jetbrains.idea-community
     squid
     dig
     bc
