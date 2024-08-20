@@ -80,6 +80,7 @@
     curl
     zsh
     git
+    lvm2
   ];
 
   environment.etc."dnsmasq.d/caching.conf".text = ''
