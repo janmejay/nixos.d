@@ -1,6 +1,16 @@
 _Bootstrap_
 
+* general nixos process: layout partitions, mount under /mnt, `nixos-generate-config --root /mnt`
+# nix-env -f '<nixpkgs>' -iA emacs git
+* tweek config in /etc/nixos
+# git clone https://github.com/janmejay/nixos.d
+* move nixos config in /etc to nixos/<env> dir and flake.nix, modify configuration to include common-config
+# nixos-install --flake .#<host>
+* set password for root on prompt
+* IMPORTANT: also set password for `janmejay` and `guest` and only then reboot!
+
+* after reboot DO-NOT-LOGIN to xsession, instead get a shell session move the nixos.d dir to ~/projects, fix ownership
 $ export NIX_CONFIG="experimental-features = nix-command flakes"
 $ nix shell nixpkgs#home-manager
-$ sudo nixos-rebuild switch --flake .#<hostname>
+$ sudo nixos-rebuild switch --flake .#<host>
 $ home-manager switch --flake .#janmejay@<hostname>

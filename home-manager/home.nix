@@ -84,6 +84,8 @@ in {
     fira-code-symbols
     mplus-outline-fonts.githubRelease
     dina-font
+    gimp
+    feh
   ];
 
   home.sessionVariables = {
@@ -99,6 +101,9 @@ in {
     ".config" = {
       source = ../dots/dot_config;
       recursive = true;
+    };
+    ".config/bg.png" = {
+      source = ../art/nix-wallpaper-binary-black.png;
     };
     ".gitconfig".source = ../dots/gitconfig;
     ".dev_utils".source = builtins.fetchGit {
