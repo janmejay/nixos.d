@@ -48,6 +48,24 @@
   };
 
   services.displayManager.defaultSession = "none+i3";
+  services.xserver.displayManager.lightdm = {
+    background = "/etc/bg.png";
+    greeters.gtk = {
+      indicators = [
+        "~host"
+        "~spacer"
+        "~clock"
+        "~spacer"
+        "~session"
+        "~language"
+        "~a11y"
+        "~power"
+      ];
+      extraConfig = ''
+        position=50%,center 80%,center
+        '';
+    };
+  };
 
   services.xserver.xkb.layout = "us";
 
@@ -83,10 +101,13 @@
     lvm2
   ];
 
-  environment.etc."dnsmasq.d/caching.conf".text = ''
-    #localise-queries
-    #host-record=repository.rubrik.com,172.17.0.1
-    '';
+  environment.etc = {
+    "dnsmasq.d/caching.conf".text = ''
+      #localise-queries
+      #host-record=repository.rubrik.com,172.17.0.1
+      '';
+    "bg.png".source = ../art/nix-wallpaper-binary-black.png;
+  };
 
   programs.gnupg.agent = {
     enable = true;

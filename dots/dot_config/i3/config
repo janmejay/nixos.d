@@ -12,7 +12,7 @@ bindsym $mod+Shift+Return exec /home/janmejay/.dev_utils/rxvt
 bindsym $mod+Shift+c kill
 
 exec xautolock -detectsleep -time 4 -locker 'i3lock -I 5 -c 000000 -f'
-exec feh --no-fehbg --bg-fill /home/janmejay/projects/nixos.d/art/nix-wallpaper-binary-black.png
+exec feh --no-fehbg --bg-fill /etc/bg.png
 exec warpd -f
 exec copyq
 exec nm-applet

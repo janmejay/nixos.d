@@ -6,15 +6,21 @@ let
   find-cursor = pkgs.callPackage ../pkgs/find-cursor {};
 
   rxvt-unicode-unwrapped =
-      let fix-osc-response = pkgs.fetchpatch {
-        name = "fix-osc-responses-with-7-bit-st.patch";
-        url = "https://github.com/exg/rxvt-unicode/commit/417b540d6dba67d440e3617bc2cf6d7cea1ed968.patch";
-        sha256 = "hnRfQc4jPiBrm06nJ3I7PHdypUc3jwnIfQV3uMYz+/Y=";
-      };
-    in
-      pkgs.rxvt-unicode-unwrapped.overrideAttrs (old: {
-        patches = (old.patches or [ ]) ++ [fix-osc-response];
-      });
+    let fix-osc-response = pkgs.fetchpatch {
+      name = "fix-osc-responses-with-7-bit-st.patch";
+      url = "https://github.com/exg/rxvt-unicode/commit/417b540d6dba67d440e3617bc2cf6d7cea1ed968.patch";
+      sha256 = "hnRfQc4jPiBrm06nJ3I7PHdypUc3jwnIfQV3uMYz+/Y=";
+    };
+  in
+    pkgs.rxvt-unicode-unwrapped.overrideAttrs (old: {
+      patches = (old.patches or [ ]) ++ [fix-osc-response];
+    });
+  dev-utils = builtins.fetchGit {
+    url = "https://github.com/janmejay/dev_utils.git";
+    rev = "664ef6c21d8b1fa5061fefd4b8fddb5a0e67718e";
+    submodules = true;
+    ref = "nixos";
+  };
 in {
   home.username = "janmejay";
   home.homeDirectory = "/home/janmejay";
@@ -86,6 +92,9 @@ in {
     dina-font
     gimp
     feh
+    pstree
+    ffmpeg
+    vlc
   ];
 
   home.sessionVariables = {
@@ -93,7 +102,6 @@ in {
   };
   home.shellAliases = {
     l = "eza";
-    ls = "eza";
     cat = "bat";
   };
 
@@ -102,16 +110,9 @@ in {
       source = ../dots/dot_config;
       recursive = true;
     };
-    ".config/bg.png" = {
-      source = ../art/nix-wallpaper-binary-black.png;
-    };
     ".gitconfig".source = ../dots/gitconfig;
-    ".dev_utils".source = builtins.fetchGit {
-      url = "https://github.com/janmejay/dev_utils.git";
-      rev = "37aec0c800c5073e0e9af6a9dd7ea82381509861";
-      submodules = true;
-      ref = "nixos";
-    };
+    ".dev_utils".source = dev-utils;
+    ".jq".source = "${dev-utils}/rc/jq";
     ".tmux.conf".source = ../dots/tmux.conf;
     ".Xdefaults".source = ../dots/Xdefaults;
     ".my.emacs.d".source = builtins.fetchGit {
