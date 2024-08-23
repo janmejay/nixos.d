@@ -73,22 +73,34 @@
 
   hardware.pulseaudio.enable = true;
 
-  users.users = {
-    janmejay = {
-      isNormalUser = true;
-      description = "Janmejay Singh";
-      extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
-      packages = with pkgs; [];
-      shell = pkgs.zsh;
+  users = {
+    groups = {
+      janmejay = {
+        gid = 1000;
+        name = "janmejay";
+      };
     };
-    passmaster = {
-      isNormalUser = true;
-      description = "Pass Master";
-      shell = "/sbin/nologin";
-    };
-    guest = {
-      isNormalUser = true;
-      description = "Guest";
+    users = {
+      janmejay = {
+        uid = 1000;
+        group = "janmejay";
+        isNormalUser = true;
+        description = "Janmejay Singh";
+        extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
+        packages = with pkgs; [];
+        shell = pkgs.zsh;
+      };
+      passmaster = {
+        uid = 1001;
+        isNormalUser = true;
+        description = "Pass Master";
+        shell = "/sbin/nologin";
+      };
+      guest = {
+        uid = 1002;
+        isNormalUser = true;
+        description = "Guest";
+      };
     };
   };
 
