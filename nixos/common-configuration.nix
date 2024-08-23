@@ -1,6 +1,17 @@
 { config, lib, pkgs, ... }:
+let
+  dev-utils = builtins.fetchGit {
+    url = "https://github.com/janmejay/dev_utils.git";
+    rev = "b2ac225f3884a46faca487f0c7835941a040cf28";
+    submodules = true;
+    ref = "nixos";
+  };
 
-{
+ pan-jail-files = {
+   dumpXml = builtins.readFile "${dev-utils}/pan_jail/pan-jail.dumpxml";
+   netXml = builtins.readFile "${dev-utils}/pan_jail/net.xml";
+ };
+in {
   nixpkgs.config.allowUnfree = true;
   nix.package = pkgs.nixFlakes;
   nix.extraOptions = ''
@@ -194,6 +205,9 @@
         user = "janmejay";
         group = "root";
       };
+      "/mnt/work/pan-jail/pan-jail.dumpxml".f.argument = pan-jail-files.dumpXml;
+      "/mnt/work/pan-jail/net.xml".f.argument = pan-jail-files.netXml;
+      "/mnt/work/pan-jail/README".f.argument = "Copy over bionic.qcow2 and run 'pan-jail.sh import' the first time\n";
     };
   };
 
