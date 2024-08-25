@@ -205,10 +205,14 @@ in {
         user = "janmejay";
         group = "root";
       };
-      "/mnt/work/pan-jail/pan-jail.dumpxml".f.argument = pan-jail-files.dumpXml;
-      "/mnt/work/pan-jail/net.xml".f.argument = pan-jail-files.netXml;
+      "/mnt/work/pan-jail/pan-jail.dumpxml".f.argument = builtins.replaceStrings ["\n"] ["\\n"] pan-jail-files.dumpXml;
+      "/mnt/work/pan-jail/net.xml".f.argument = builtins.replaceStrings ["\n"] ["\\n"] pan-jail-files.netXml;
       "/mnt/work/pan-jail/README".f.argument = "Copy over bionic.qcow2 and run 'pan-jail.sh import' the first time\n";
     };
+  };
+
+  system.activationScripts = {
+    tmpfilesSvcRestart.text = "${pkgs.systemd}/bin/systemctl restart systemd-tmpfiles-resetup";
   };
 
   services.dnsmasq.alwaysKeepRunning = true;
