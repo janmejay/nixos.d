@@ -17,7 +17,7 @@ let
     });
   dev-utils = builtins.fetchGit {
     url = "https://github.com/janmejay/dev_utils.git";
-    rev = "b6629b6df379a00bce9d2b1e49ef3a5729fbecaa";
+    rev = "dc5c21c7dda098dcb5e03516e5f491d3f000d73d";
     submodules = true;
     ref = "nixos";
   };
@@ -45,6 +45,8 @@ in {
     find-cursor
 
     # public v
+    go
+    graphviz
     vscode
     jetbrains.idea-community
     squid
