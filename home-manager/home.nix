@@ -45,7 +45,10 @@ in {
     find-cursor
 
     # public v
-    go
+    cmake
+    tcpdump
+    gcc
+    nix-index
     graphviz
     vscode
     jetbrains.idea-community

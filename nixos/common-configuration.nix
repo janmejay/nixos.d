@@ -200,6 +200,11 @@ in {
         user = "janmejay";
         group = "root";
       };
+      "/mnt/work/overlay.d".d = {
+        mode = "0750";
+        user = "janmejay";
+        group = "root";
+      };
       "/mnt/work/pan-jail".d = {
         mode = "0750";
         user = "janmejay";
