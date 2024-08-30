@@ -12,31 +12,28 @@
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+
       home-mgr-cfg = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = { inherit inputs; };
-        modules = [
-            ./home-manager/home.nix
-        ];
-      };
+          pkgs = pkgs;
+          extraSpecialArgs = { inherit inputs; };
+          modules = [
+              ./home-manager/home.nix
+          ];
+        };
+
+      os-cfg = cfg-file : nixpkgs.lib.nixosSystem {
+          system = system;
+          specialArgs = { inherit inputs; };
+          modules = [ cfg-file ];
+        };
     in {
 
       # build: 'nixos-rebuild --flake .#the-hostname'
       nixosConfigurations = {
-        jnix = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./nixos/jnix/configuration.nix
-          ];
-        };
-        lenovo = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./nixos/lenovo/configuration.nix
-          ];
-        };
+        jnix = os-cfg ./nixos/jnix/configuration.nix;
+        lenovo = os-cfg ./nixos/lenovo/configuration.nix;
       };
 
       # Available through 'home-manager --flake .#janmejay@jnix'
