@@ -45,7 +45,6 @@ in {
     find-cursor
 
     # public v
-    cmake
     tcpdump
     gcc
     nix-index

@@ -122,9 +122,21 @@ bar {
     status_command "/home/janmejay/.dev_utils/i3_status"
 }
 
+# To adjust settings for new annoying windows
+# ... run below and focus on the window ...
+# $ sleep 2 && xprop -root _NET_ACTIVE_WINDOW
+# ... and then run below (after replacing window-id) ...
+# $ xprop -id 0x260018a
+
 for_window [class="^jetbrains-.+"][window_type=dialog] focus
 for_window [class="copyq"] floating enable
 for_window [class="copyq"] resize set height 1600
+for_window [class="copyq"] move position center
 for_window [class="firefox" window_role="alert"] floating enable
 no_focus [class="firefox" window_role="alert"]
 for_window [class="PanGPUI" title="PanGPUI"] move container to workspace 9: Knobs
+
+# google-chrome's blue popup (not notification, some new fangled nonsense)
+for_window [window_role="bubble"] floating enable
+no_focus [window_role="bubble"]
+
