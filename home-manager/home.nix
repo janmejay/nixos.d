@@ -45,6 +45,7 @@ in {
     find-cursor
 
     # public v
+    pistol
     tcpdump
     gcc
     nix-index
@@ -141,11 +142,21 @@ in {
     initExtra = ''
     source ~/.dev_utils/rc/shared_shell_config
     '';
+    oh-my-zsh= {
+      enable = true;
+      plugins = ["git" "python" "docker" "fzf"];
+      theme = "dpoggi";
+    };
   };
 
-  programs.zsh.oh-my-zsh= {
+  programs.kitty = {
     enable = true;
-    plugins = ["git" "python" "docker" "fzf"];
-    theme = "dpoggi";
+    theme = "3024 Night";
+    shellIntegration.enableZshIntegration = true;
+    font = {
+      name = "DejaVu Sans Mono";
+      size = 15.5;
+    };
+    extraConfig = "enable_audio_bell no";
   };
 }
