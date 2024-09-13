@@ -34,12 +34,14 @@
       nixosConfigurations = {
         jnix = os-cfg ./nixos/jnix/configuration.nix;
         lenovo = os-cfg ./nixos/lenovo/configuration.nix;
+        dell = os-cfg ./nixos/dell/configuration.nix;
       };
 
       # Available through 'home-manager --flake .#janmejay@jnix'
       homeConfigurations = {
         "janmejay@jnix" = home-mgr-cfg;
         "janmejay@lenovo" = home-mgr-cfg;
+        "janmejay@dell" = home-mgr-cfg;
       };
    };
 }
