@@ -42,6 +42,11 @@ in {
     useXkbConfig = true; # use xkb.options in tty.
   };
 
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+  };
+
   services.xserver = {
     enable = true;
     desktopManager = {
