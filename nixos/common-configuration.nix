@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, sops, ... }:
 let
   dev-utils = builtins.fetchGit {
     url = "https://github.com/janmejay/dev_utils.git";
@@ -29,6 +29,12 @@ in {
   fileSystems."/home/janmejay/projects" = {
     device = "/mnt/work/projects";
     options = [ "bind" ];
+  };
+
+  sops.defaultSopsFile = ../secrets/data.yaml;
+  sops.age.keyFile = "/var/lib/sops-nix/keys.txt";
+  sops.secrets.test_val1 = {
+    owner = "janmejay";
   };
 
   networking.networkmanager.enable = true;
