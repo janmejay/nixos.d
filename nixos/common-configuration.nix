@@ -109,6 +109,12 @@ in {
 
   hardware.pulseaudio.enable = true;
 
+  documentation = {
+    enable = true;
+    dev.enable = true;
+    doc.enable = true;
+  };
+
   users = {
     groups = {
       janmejay = {
@@ -147,6 +153,9 @@ in {
     zsh
     git
     lvm2
+    linux-manual
+    man-pages
+    man-pages-posix
   ];
 
   environment.etc = {
