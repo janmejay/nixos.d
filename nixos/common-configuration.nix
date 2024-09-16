@@ -33,8 +33,12 @@ in {
 
   sops.defaultSopsFile = ../secrets/data.yaml;
   sops.age.keyFile = "/var/lib/sops-nix/keys.txt";
-  sops.secrets.test_val1 = {
+  sops.secrets."pan-jail/pan-jail.sh" = {
     owner = "janmejay";
+    mode = "0700";
+    format = "binary";
+    sopsFile = ../secrets/pan-jail/pan-jail.sh;
+    path = "/mnt/work/bin/pan-jail.sh";
   };
 
   networking.networkmanager.enable = true;
@@ -208,6 +212,11 @@ in {
     "work" = {
       "/mnt/work".d = {
         mode = "0750";
+        user = "root";
+        group = "wheel";
+      };
+      "/mnt/work/bin".d = {
+        mode = "0755";
         user = "root";
         group = "wheel";
       };
