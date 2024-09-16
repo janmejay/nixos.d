@@ -45,6 +45,7 @@ in {
     find-cursor
 
     # public v
+    sops
     pistol
     tcpdump
     gcc

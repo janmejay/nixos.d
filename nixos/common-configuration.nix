@@ -11,6 +11,8 @@ let
    dumpXml = builtins.readFile "${dev-utils}/pan_jail/pan-jail.dumpxml";
    netXml = builtins.readFile "${dev-utils}/pan_jail/net.xml";
  };
+
+ secret_owner = { owner = "janmejay"; };
 in {
   nixpkgs.config.allowUnfree = true;
   nix.package = pkgs.nixFlakes;
@@ -40,6 +42,9 @@ in {
     sopsFile = ../secrets/pan-jail/pan-jail.sh;
     path = "/mnt/work/bin/pan-jail.sh";
   };
+
+  sops.secrets."squid_cert.pem" = secret_owner;
+  sops.secrets."squid_key.pem" = secret_owner;
 
   networking.networkmanager.enable = true;
 
