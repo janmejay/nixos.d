@@ -49,6 +49,9 @@
       };
 
       devShells."${system}" = {
+        amm = pkgs.mkShell {
+          packages = [ pkgs.ammonite_2_13 ];
+        };
         linux = pkgs.stdenv.mkDerivation {
           name = "dev-shell";
 

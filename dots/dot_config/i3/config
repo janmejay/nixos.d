@@ -140,3 +140,4 @@ for_window [class="PanGPUI" title="PanGPUI"] move container to workspace 9: Knob
 for_window [window_role="bubble"] floating enable
 no_focus [window_role="bubble"]
 
+for_window [class="zoom"] floating enable
