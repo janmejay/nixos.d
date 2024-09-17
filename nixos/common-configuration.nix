@@ -20,8 +20,23 @@ in {
     experimental-features = nix-command flakes
     '';
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+
+    kernelPatches = [{
+      name = "dev-config";
+      patch = null;
+      extraConfig = ''
+          FUNCTION_ERROR_INJECTION y
+          FAULT_INJECTION y
+          FAULT_INJECTION_DEBUG_FS y
+          FAIL_FUNCTION y
+        '';
+    }];
+  };
 
   fileSystems."/mnt/work" = {
     device = "/dev/disk/by-label/work";
