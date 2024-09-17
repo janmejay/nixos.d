@@ -22,4 +22,4 @@ indicator_size: 8
 hint: C-A-g g
 hint_chars: abcdef;ghijklmnopqrst'uvwx[yz
 drag: C-space
-copy_and_exit: A-w
+copy_and_exit: esc A-w

@@ -47,5 +47,20 @@
         "janmejay@lenovo" = home-mgr-cfg;
         "janmejay@dell" = home-mgr-cfg;
       };
+
+      devShells."${system}" = {
+        linux = pkgs.stdenv.mkDerivation {
+          name = "dev-shell";
+
+          nativeBuildInputs = [
+            pkgs.pkg-config
+            pkgs.ncurses
+          ];
+
+          shellHook = ''
+            echo Src tarball: ${pkgs.linux.src}
+          '';
+        };
+      };
    };
 }
