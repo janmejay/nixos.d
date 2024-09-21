@@ -24,7 +24,7 @@
   editor = emacs -q -nw
   pager = less -F -x4
 [push]
-  default = matching
+  default = current
 [branch]
   autosetupmerge = true
 [gui]
