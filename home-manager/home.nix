@@ -52,7 +52,7 @@ in {
     nix-index
     graphviz
     vscode
-    jetbrains.idea-community
+    (jetbrains.plugins.addPlugins jetbrains.idea-community [ "github-copilot" ])
     squid
     dig
     bc
