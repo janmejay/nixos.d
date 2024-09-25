@@ -30,6 +30,8 @@ in {
       name = "dev-config";
       patch = null;
       extraConfig = ''
+          DEBUG_INFO y
+          GDB_SCRIPTS y
           FUNCTION_ERROR_INJECTION y
           FAULT_INJECTION y
           FAULT_INJECTION_DEBUG_FS y
@@ -171,6 +173,7 @@ in {
     linux-manual
     man-pages
     man-pages-posix
+    config.boot.kernelPackages.perf
   ];
 
   environment.etc = {
