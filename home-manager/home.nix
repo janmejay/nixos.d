@@ -17,7 +17,7 @@ let
     });
   dev-utils = builtins.fetchGit {
     url = "https://github.com/janmejay/dev_utils.git";
-    rev = "bc7386fc674d05cea032621c619a7c850167ca7f";
+    rev = "549af24750ebcfc1a5d817249f78908bf1742782";
     submodules = true;
     ref = "nixos";
   };
@@ -45,6 +45,7 @@ in {
     find-cursor
 
     # public v
+    moreutils
     sops
     pistol
     tcpdump

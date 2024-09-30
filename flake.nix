@@ -55,9 +55,11 @@
         linux = pkgs.stdenv.mkDerivation {
           name = "dev-shell";
 
-          nativeBuildInputs = [
-            pkgs.pkg-config
-            pkgs.ncurses
+          nativeBuildInputs = with pkgs; [
+            pkg-config
+            ncurses
+            flex
+            bison
           ];
 
           shellHook = ''
