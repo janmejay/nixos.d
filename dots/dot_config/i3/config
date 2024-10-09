@@ -20,7 +20,21 @@ bindsym $alt+Ctrl+l exec "xautolock -locknow"
 
 focus_follows_mouse no
 
+mode "tray" {
+  bindsym 1 exec "/home/janmejay/.dev_utils/tray-item 1"; mode default
+  bindsym 2 exec "/home/janmejay/.dev_utils/tray-item 2"; mode default
+  bindsym 3 exec "/home/janmejay/.dev_utils/tray-item 3"; mode default
+  bindsym 4 exec "/home/janmejay/.dev_utils/tray-item 4"; mode default
+  bindsym 5 exec "/home/janmejay/.dev_utils/tray-item 5"; mode default
+  bindsym 6 exec "/home/janmejay/.dev_utils/tray-item 6"; mode default
+  bindsym 7 exec "/home/janmejay/.dev_utils/tray-item 7"; mode default
+  bindsym 8 exec "/home/janmejay/.dev_utils/tray-item 8"; mode default
+  bindsym 9 exec "/home/janmejay/.dev_utils/tray-item 9"; mode default
+  bindsym Escape mode default
+}
+
 bindsym $mod+p exec "/home/janmejay/.dev_utils/mymenu"
+bindsym $mod+Shift+p mode tray
 
 # change focus
 bindsym $mod+l focus left
