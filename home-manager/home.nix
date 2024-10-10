@@ -146,6 +146,11 @@ in {
     initExtra = ''
     source ~/.dev_utils/rc/shared_shell_config
     DEFAULT_USER=${user}
+    prompt_context() {
+      if (( $SHLVL > 1 )) ; then
+        prompt_segment white black $SHLVL
+      fi
+    }
     '';
     oh-my-zsh= {
       enable = true;
