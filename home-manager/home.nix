@@ -21,9 +21,10 @@ let
     submodules = true;
     ref = "nixos";
   };
+  user="janmejay";
 in {
-  home.username = "janmejay";
-  home.homeDirectory = "/home/janmejay";
+  home.username = user;
+  home.homeDirectory = /home/${user};
   home.stateVersion = "24.05";
   nixpkgs = {
     config = {
@@ -141,13 +142,15 @@ in {
 
   programs.zsh = {
     enable = true;
+    enableCompletion = true;
     initExtra = ''
     source ~/.dev_utils/rc/shared_shell_config
+    DEFAULT_USER=${user}
     '';
     oh-my-zsh= {
       enable = true;
       plugins = ["git" "python" "docker" "fzf"];
-      theme = "dpoggi";
+      theme = "agnoster";
     };
   };
 
