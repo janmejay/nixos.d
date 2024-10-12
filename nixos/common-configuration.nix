@@ -157,7 +157,7 @@ in {
         uid = 1001;
         isNormalUser = true;
         description = "Pass Master";
-        shell = "/sbin/nologin";
+        shell = "${pkgs.git}/bin/git-shell";
       };
       guest = {
         uid = 1002;
