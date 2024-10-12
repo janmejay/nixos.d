@@ -25,15 +25,6 @@ in {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-
-    kernelPatches = [{
-      name = "dev-config";
-      patch = null;
-      features = {
-        debug = true;
-        tracing = true;
-      };
-    }];
   };
 
   fileSystems."/mnt/work" = {
@@ -54,6 +45,23 @@ in {
     format = "binary";
     sopsFile = ../secrets/pan-jail/pan-jail.sh;
     path = "/mnt/work/bin/pan-jail.sh";
+  };
+  sops.secrets."passmaster.id_ed25519" = {
+    owner = "passmaster";
+    mode = "0600";
+    path = "/home/passmaster/.ssh/id_ed25519";
+  };
+  sops.secrets.passmaster_pubkey = {
+    owner = "passmaster";
+    mode = "0644";
+    path = "/home/passmaster/.ssh/id_ed25519.pub";
+    key = "passmaster.id_ed25519.pub";
+  };
+  sops.secrets.passmaster_authorized_keys = {
+    owner = "passmaster";
+    mode = "0400";
+    path = "/home/passmaster/.ssh/authorized_keys";
+    key = "passmaster.id_ed25519.pub";
   };
 
   sops.secrets."squid_cert.pem" = secret_owner;
