@@ -46,6 +46,7 @@ in {
     find-cursor
 
     # public v
+    xorg.xkill
     moreutils
     sops
     pistol

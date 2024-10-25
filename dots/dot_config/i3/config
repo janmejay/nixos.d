@@ -10,6 +10,7 @@ floating_modifier $mod
 bindsym $mod+Shift+Return exec "kitty tmux"
 
 bindsym $mod+Shift+c kill
+bindsym $alt+Ctrl+Shift+k exec xkill # kill unresponsive window with left-click
 
 exec xautolock -detectsleep -time 4 -locker 'i3lock -I 5 -c 000000 -f'
 exec feh --no-fehbg --bg-fill /etc/bg.png
