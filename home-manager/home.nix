@@ -17,7 +17,7 @@ let
     });
   dev-utils = builtins.fetchGit {
     url = "https://github.com/janmejay/dev_utils.git";
-    rev = "fc28ebd6776264c9c71dad721431f17d3b40ed59";
+    rev = "c6a20d9dac5a900307c5f3821af639f01bb9d018";
     submodules = true;
     ref = "nixos";
   };
@@ -46,6 +46,7 @@ in {
     find-cursor
 
     # public v
+    timg
     xorg.xkill
     moreutils
     sops
