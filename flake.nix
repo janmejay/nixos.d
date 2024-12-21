@@ -66,6 +66,22 @@
             echo Src tarball: ${pkgs.linux.src}
           '';
         };
+        fdb = pkgs.mkShell {
+          name = "FoundationDB";
+
+          packages = with pkgs; [
+            cmake
+            ninja
+            mono
+            jemalloc
+            openssl
+            lz4
+          ];
+
+          shellHook = ''
+            echo FDB
+          '';
+        };
       };
    };
 }

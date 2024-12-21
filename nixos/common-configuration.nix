@@ -2,7 +2,7 @@
 let
   dev-utils = builtins.fetchGit {
     url = "https://github.com/janmejay/dev_utils.git";
-    rev = "b2ac225f3884a46faca487f0c7835941a040cf28";
+    rev = "439e012bc51e46f1b491d82b72906ed6e1de19c6";
     submodules = true;
     ref = "nixos";
   };
@@ -178,6 +178,7 @@ in {
     man-pages
     man-pages-posix
     config.boot.kernelPackages.perf
+    tor
   ];
 
   environment.etc = {
