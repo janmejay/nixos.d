@@ -105,6 +105,7 @@ in {
     pstree
     ffmpeg
     vlc
+    file
   ];
 
   home.sessionVariables = {
