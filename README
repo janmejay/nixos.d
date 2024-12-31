@@ -23,4 +23,7 @@ $ home-manager switch --flake .#janmejay@<hostname>
 
 _Upgrade_
 
-* nix flake update
+$ nix flake update
+$ nix flake check
+$ sudo nixos-rebuild switch --flake .#<host>
+$ home-manager switch --flake .#janmejay@<hostname>

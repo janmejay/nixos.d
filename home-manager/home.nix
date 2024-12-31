@@ -31,7 +31,7 @@ in {
       allowUnfree = true;
       allowUnfreePredicate = (_: true);
       permittedInsecurePackages = [
-        "squid-6.8"
+        "squid-6.10"
       ];
     };
   };
@@ -56,8 +56,8 @@ in {
     nix-index
     graphviz
     vscode
-    (jetbrains.plugins.addPlugins jetbrains.idea-community [ "github-copilot" ])
-    squid
+    jetbrains.idea-community-bin
+    # squid
     dig
     bc
     rlwrap
@@ -93,7 +93,7 @@ in {
     intel-one-mono
     source-code-pro
     noto-fonts
-    noto-fonts-cjk
+    noto-fonts-cjk-sans
     noto-fonts-emoji
     liberation_ttf
     fira-code
@@ -132,13 +132,13 @@ in {
       ref = "nixos";
     };
     ".emacs".source = ../dots/emacs;
-    "projects/rubrik/squid.d/run.sh" = {
-      source = ../dots/squid.run.sh;
-      executable = true;
-    };
-    "projects/rubrik/squid.d/conf/squid.conf" = {
-      source = ../dots/squid.conf;
-    };
+    # "projects/rubrik/squid.d/run.sh" = {
+    #   source = ../dots/squid.run.sh;
+    #   executable = true;
+    # };
+    # "projects/rubrik/squid.d/conf/squid.conf" = {
+    #   source = ../dots/squid.conf;
+    # };
   };
 
   fonts.fontconfig.enable = true;
@@ -164,7 +164,7 @@ in {
 
   programs.kitty = {
     enable = true;
-    theme = "3024 Night";
+    themeFile = "3024_Night";
     shellIntegration.enableZshIntegration = true;
     font = {
       name = "DejaVu Sans Mono";

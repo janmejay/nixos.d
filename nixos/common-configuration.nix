@@ -15,7 +15,7 @@ let
  secret_owner = { owner = "janmejay"; };
 in {
   nixpkgs.config.allowUnfree = true;
-  nix.package = pkgs.nixFlakes;
+  nix.package = pkgs.nixVersions.git;
   nix.extraOptions = ''
     experimental-features = nix-command flakes
     '';
@@ -127,8 +127,6 @@ in {
   services.xserver.xkb.layout = "us";
 
   services.printing.enable = true;
-
-  hardware.pulseaudio.enable = true;
 
   documentation = {
     enable = true;

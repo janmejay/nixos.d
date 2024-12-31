@@ -18,10 +18,10 @@ let
     version = "1.3.7-win+";
 
     src = fetchFromGitHub {
-      owner = "rvaiya";
+      owner = "janmejay";
       repo = "warpd";
-      rev = "01650eabf70846deed057a77ada3c0bbb6d97d6e";
-      hash = "sha256-61+kJvOi4oog0+tGucc1rWemdx2vp15wlluJE+1PzTs=";
+      rev = "879c9a6fa58c0b11144c951318977f72fd3f7b3f";
+      hash = "sha256-hN6AF5OGU3A9KrpWNO8NKcUID6+1XrWtgRfITsjZg8k=";
     };
 
     buildInputs = [libXfixes libXext libXinerama libXi libXtst libX11 libXft];
