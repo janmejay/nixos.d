@@ -57,7 +57,7 @@ in {
     graphviz
     vscode
     (jetbrains.plugins.addPlugins jetbrains.idea-community [ "github-copilot" ])
-    # squid
+    squid
     dig
     bc
     rlwrap
@@ -132,13 +132,13 @@ in {
       ref = "nixos";
     };
     ".emacs".source = ../dots/emacs;
-    # "projects/rubrik/squid.d/run.sh" = {
-    #   source = ../dots/squid.run.sh;
-    #   executable = true;
-    # };
-    # "projects/rubrik/squid.d/conf/squid.conf" = {
-    #   source = ../dots/squid.conf;
-    # };
+    "projects/rubrik/squid.d/run.sh" = {
+      source = ../dots/squid.run.sh;
+      executable = true;
+    };
+    "projects/rubrik/squid.d/conf/squid.conf" = {
+      source = ../dots/squid.conf;
+    };
   };
 
   fonts.fontconfig.enable = true;
