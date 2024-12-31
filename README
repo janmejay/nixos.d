@@ -19,3 +19,8 @@ $ export NIX_CONFIG="experimental-features = nix-command flakes"
 $ nix shell nixpkgs#home-manager
 $ sudo nixos-rebuild switch --flake .#<host>
 $ home-manager switch --flake .#janmejay@<hostname>
+
+
+_Upgrade_
+
+* nix flake update
