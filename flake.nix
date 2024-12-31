@@ -2,7 +2,7 @@
   description = "NixOS Config";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/969d35045cf4127e7004d9d155ed935725a03588";
     sops-nix.url = "github:Mic92/sops-nix";
 
     home-manager.url = "github:nix-community/home-manager";
