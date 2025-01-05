@@ -41,6 +41,7 @@
         jnix = os-cfg ./nixos/jnix/configuration.nix;
         lenovo = os-cfg ./nixos/lenovo/configuration.nix;
         dell = os-cfg ./nixos/dell/configuration.nix;
+        obsl = os-cfg ./nixos/obsl/configuration.nix;
       };
 
       # Available through 'home-manager --flake .#janmejay@jnix'
@@ -48,6 +49,7 @@
         "janmejay@jnix" = home-mgr-cfg;
         "janmejay@lenovo" = home-mgr-cfg;
         "janmejay@dell" = home-mgr-cfg;
+        "janmejay@obsl" = home-mgr-cfg;
       };
 
       devShells."${system}" = {

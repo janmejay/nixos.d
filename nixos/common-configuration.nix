@@ -288,6 +288,8 @@ in {
     conf-dir = "/etc/dnsmasq.d,*.conf";
   };
 
+  services.ntp.enable = true;
+
   networking.firewall.enable = false;
 
   virtualisation = {
