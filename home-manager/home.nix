@@ -31,7 +31,7 @@ in {
       allowUnfree = true;
       allowUnfreePredicate = (_: true);
       permittedInsecurePackages = [
-        "squid-6.10"
+        "squid-6.12"
       ];
     };
   };
