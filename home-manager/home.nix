@@ -46,6 +46,8 @@ in {
     find-cursor
 
     # public v
+    sysstat
+    dstat
     timg
     xorg.xkill
     moreutils
