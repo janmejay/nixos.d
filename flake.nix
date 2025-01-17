@@ -84,6 +84,19 @@
             echo FDB
           '';
         };
+        work = pkgs.mkShell {
+          name = "work";
+
+          packages = with pkgs; [
+            awscli2
+            kubectl
+            kubectx
+          ];
+
+          shellHook = ''
+            echo Work
+          '';
+        };
       };
    };
 }

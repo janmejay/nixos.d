@@ -153,7 +153,8 @@ in {
     DEFAULT_USER=${user}
     prompt_context() {
       if (( $SHLVL > 1 )) ; then
-        prompt_segment white black $SHLVL
+        n=$(echo $name | sed -re "s/,.+//")
+        prompt_segment white black "$n/$SHLVL"
       fi
     }
     '';
