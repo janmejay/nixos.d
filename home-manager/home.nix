@@ -17,7 +17,7 @@ let
     });
   dev-utils = builtins.fetchGit {
     url = "https://github.com/janmejay/dev_utils.git";
-    rev = "0de9d10a5598239c5841fe77d82be6b3fba91cda";
+    rev = "3384ab0cc80455068c9e6d4a3e290546f34f41a6";
     submodules = true;
     ref = "nixos";
   };

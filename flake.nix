@@ -91,11 +91,8 @@
             awscli2
             kubectl
             kubectx
+            minikube
           ];
-
-          shellHook = ''
-            echo Work
-          '';
         };
       };
    };
