@@ -92,6 +92,7 @@
             kubectl
             kubectx
             minikube
+            go_1_23
           ];
         };
       };

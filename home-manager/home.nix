@@ -57,7 +57,7 @@ in {
     gcc
     nix-index
     graphviz
-    vscode
+    vscode-fhs
     (jetbrains.plugins.addPlugins jetbrains.idea-community [ "github-copilot" ])
     squid
     dig
@@ -115,7 +115,7 @@ in {
   };
   home.shellAliases = {
     l = "eza";
-    cat = "bat";
+    c = "bat";
   };
 
   home.file = {
