@@ -95,6 +95,22 @@
             go_1_23
           ];
         };
+        work_fhs = (pkgs.buildFHSEnv {
+          name = "work_fhs";
+          targetPkgs = pkgs: (with pkgs; [
+            awscli2
+            kubectl
+            kubectx
+            minikube
+            go_1_23
+            virtualenv
+          ]);
+          multiPkgs = pkgs: (with pkgs; [
+            udev
+            alsa-lib
+          ]);
+          runScript = "zsh";
+        }).env;
       };
    };
 }
