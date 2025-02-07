@@ -86,14 +86,29 @@
         };
         work = pkgs.mkShell {
           name = "work";
-
+          hardeningDisable = [ "all" ];
           packages = with pkgs; [
             awscli2
             kubectl
             kubectx
             minikube
             go_1_23
+            delve
+            clang
+            k9s
+            kubernetes-helm
+            grpcurl
           ];
+          shellHook = ''
+            dp_bin=$(pwd)/dataplane
+            if [ -e $dp_bin ]; then
+              echo "Found dataplane bin, adding to path"
+              export PATH=$PATH:$(dirname $dp_bin)
+            else
+              echo "Found NO dataplane bin ($dp_bin)"
+            fi
+            exec /home/janmejay/.nix-profile/bin/zsh
+          '';
         };
         work_fhs = (pkgs.buildFHSEnv {
           name = "work_fhs";

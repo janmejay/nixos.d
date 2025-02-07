@@ -17,7 +17,7 @@ let
     });
   dev-utils = builtins.fetchGit {
     url = "https://github.com/janmejay/dev_utils.git";
-    rev = "c62c3e8a75b2c0ca1876bd7e1becb02247d7d929";
+    rev = "f608fa79c3452c6f3640804237d5f5a9507d5633";
     submodules = true;
     ref = "master";
   };
@@ -46,6 +46,7 @@ in {
     find-cursor
 
     # public v
+    patchelf
     sysstat
     dstat
     timg
