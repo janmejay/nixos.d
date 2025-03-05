@@ -84,6 +84,19 @@
             echo FDB
           '';
         };
+        plot = pkgs.mkShell {
+          name = "plot";
+          hardeningDisable = [ "all" ];
+          packages = [
+            (pkgs.python3.withPackages (python-pkgs: with python-pkgs; [
+              pandas
+              requests
+              numpy
+              seaborn
+              matplotlib
+            ]))
+          ];
+        };
         work = pkgs.mkShell {
           name = "work";
           hardeningDisable = [ "all" ];
@@ -98,6 +111,13 @@
             k9s
             kubernetes-helm
             grpcurl
+            gh
+            yq
+            graphqurl
+            visualvm
+            unzip
+            evcxr
+            rustc
           ];
           shellHook = ''
             dp_bin=$(pwd)/dataplane
