@@ -194,6 +194,20 @@ in {
   };
   programs.zsh.enable = true;
 
+  services.tor = {
+    enable = true;
+    client = {
+      enable = true;
+      dns.enable = true;
+    };
+    settings = {
+      DNSPort = [{
+        addr = "127.0.0.1";
+        port = 9053;
+      }];
+    };
+  };
+
   services.openssh.enable = true;
   services.dnsmasq.enable = true;
   services.keyd = {
