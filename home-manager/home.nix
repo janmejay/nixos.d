@@ -68,6 +68,7 @@ in {
     i3lock
     zoom-us
     pavucontrol
+    wireplumber
     networkmanagerapplet
     xclip
     xfce.xfce4-screenshooter
