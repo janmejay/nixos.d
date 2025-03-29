@@ -222,6 +222,29 @@ in {
           esc = "toggle(nav)"; # before navA this was `capslock`
         };
         "capslock:C" = {};
+        "meta:M" = {
+          "1" = "clearm(M-1)";
+          "2" = "togglem(code, M-2)";
+          "3" = "togglem(code, M-3)";
+          "4" = "clearm(M-4)";
+          "5" = "clearm(M-5)";
+          "6" = "clearm(M-6)";
+          "7" = "clearm(M-7)";
+          "8" = "clearm(M-8)";
+          "9" = "clearm(M-9)";
+          "0" = "clearm(M-0)";
+        };
+        code = {
+          capslock = "layer(codeC)";
+        };
+        "codeC:C" = {
+          n = "down";
+          p = "up";
+          f = "right";
+          b = "left";
+          a = "home";
+          e = "end";
+        };
         nav = {
           capslock = "layer(navC)";
           alt = "overload(navA, esc)";
