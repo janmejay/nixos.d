@@ -225,7 +225,7 @@ in {
         "meta:M" = {
           "1" = "clearm(M-1)";
           "2" = "togglem(code, M-2)";
-          "3" = "togglem(code, M-3)";
+          "3" = "clearm(M-3)";
           "4" = "clearm(M-4)";
           "5" = "clearm(M-5)";
           "6" = "clearm(M-6)";
