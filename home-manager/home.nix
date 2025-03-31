@@ -17,7 +17,7 @@ let
     });
   dev-utils = builtins.fetchGit {
     url = "https://github.com/janmejay/dev_utils.git";
-    rev = "bdf6ad3269184a09d09d76c62bfb621f3f678620";
+    rev = "d7a983c685cf10c5b1ad45aef6a4c0ac2845584c";
     submodules = true;
     ref = "master";
   };
