@@ -102,6 +102,7 @@
           hardeningDisable = [ "all" ];
           packages = with pkgs; [
             awscli2
+            azure-cli
             kubectl
             kubectx
             minikube

@@ -245,6 +245,9 @@ in {
           a = "home";
           e = "end";
         };
+        "codeC:C-A" = {
+          b = "C-b";
+        };
         nav = {
           capslock = "layer(navC)";
           alt = "overload(navA, esc)";
