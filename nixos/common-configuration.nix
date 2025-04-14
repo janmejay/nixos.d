@@ -214,58 +214,60 @@ in {
     enable = true;
     keyboards.default = {
       ids = [ "*" ];
-      settings = {
-        main = {
-          capslock = "layer(capslock)";
-          alt = "overload(alt, esc)";
-          meta = "overload(meta, esc)";
-          esc = "toggle(nav)"; # before navA this was `capslock`
-        };
-        "capslock:C" = {};
-        "meta:M" = {
-          "1" = "clearm(M-1)";
-          "2" = "togglem(code, M-2)";
-          "3" = "clearm(M-3)";
-          "4" = "clearm(M-4)";
-          "5" = "clearm(M-5)";
-          "6" = "clearm(M-6)";
-          "7" = "clearm(M-7)";
-          "8" = "clearm(M-8)";
-          "9" = "clearm(M-9)";
-          "0" = "clearm(M-0)";
-        };
-        code = {
-          capslock = "layer(codeC)";
-        };
-        "codeC:C" = {
-          n = "down";
-          p = "up";
-          f = "right";
-          b = "left";
-          a = "home";
-          e = "end";
-        };
-        "codeC:C-A" = {
-          b = "C-b";
-        };
-        nav = {
-          capslock = "layer(navC)";
-          alt = "overload(navA, esc)";
-        };
-        "navC:C" = {
-          n = "down";
-          p = "up";
-          f = "right";
-          b = "left";
-          a = "home";
-          e = "end";
-        };
-        "navA:A" = {
-          f = "macro(right 20ms right)";
-          b = "macro(left 20ms left)";
-          esc = "esc";
-        };
-      };
+      extraConfig = ''
+[alt]
+
+[capslock:C]
+
+[code]
+capslock=layer(codeC)
+
+[codeC:C]
+a=home
+b=left
+e=end
+f=right
+n=down
+p=up
+
+[alt+codeC]
+b=C-A-b
+
+[main]
+alt=overload(alt, esc)
+capslock=layer(capslock)
+esc=toggle(nav)
+meta=overload(meta, esc)
+
+[meta:M]
+0=clearm(M-0)
+1=clearm(M-1)
+2=togglem(code, M-2)
+3=clearm(M-3)
+4=clearm(M-4)
+5=clearm(M-5)
+6=clearm(M-6)
+7=clearm(M-7)
+8=clearm(M-8)
+9=clearm(M-9)
+
+[nav]
+alt=overload(navA, esc)
+capslock=layer(navC)
+
+[navA:A]
+b=macro(left 20ms left)
+esc=esc
+f=macro(right 20ms right)
+
+[navC:C]
+a=home
+b=left
+e=end
+f=right
+n=down
+p=up
+'';
     };
   };
 
