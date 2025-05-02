@@ -333,6 +333,8 @@ p=up
   services.ntp.enable = true;
 
   networking.firewall.enable = false;
+  services.k3s.enable = true;
+  services.k3s.role = "server";
 
   virtualisation = {
     docker = {

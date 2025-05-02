@@ -17,7 +17,7 @@ let
     });
   dev-utils = builtins.fetchGit {
     url = "https://github.com/janmejay/dev_utils.git";
-    rev = "d7a983c685cf10c5b1ad45aef6a4c0ac2845584c";
+    rev = "683bd7a29271eae8a171061d6b097b66761b7aa7";
     submodules = true;
     ref = "master";
   };
@@ -110,6 +110,7 @@ in {
     ffmpeg
     vlc
     file
+    openjdk
   ];
 
   home.sessionVariables = {
