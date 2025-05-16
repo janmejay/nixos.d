@@ -119,8 +119,11 @@
             unzip
             evcxr
             rustc
+            gradle
+            openjdk
           ];
           shellHook = ''
+            export KUBECONFIG=/home/janmejay/.kube/config
             dp_bin=$(pwd)/dataplane
             if [ -e $dp_bin ]; then
               echo "Found dataplane bin, adding to path"
