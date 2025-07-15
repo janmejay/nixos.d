@@ -121,6 +121,9 @@
             rustc
             gradle
             openjdk
+            protobuf
+            lua54Packages.lua
+            sqlite
           ];
           shellHook = ''
             export KUBECONFIG=/home/janmejay/.kube/config
@@ -133,6 +136,9 @@
             fi
             exec /home/janmejay/.nix-profile/bin/zsh
           '';
+          buildInputs = [
+            pkgs.sbt
+          ];
         };
         work_fhs = (pkgs.buildFHSEnv {
           name = "work_fhs";

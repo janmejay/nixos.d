@@ -27,3 +27,11 @@ $ nix flake update
 $ nix flake check
 $ sudo nixos-rebuild switch --flake .#<host>
 $ home-manager switch --flake .#janmejay@<hostname>
+
+
+_GC_
+$ nix-env --list-generations
+$ ./trim-generations.sh 2 0 home-manager
+$ sudo nix-collect-garbage -d
+$ sudo nixos-rebuild switch --flake .#obsl
+$ nixos-rebuild list-generations
