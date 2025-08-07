@@ -124,6 +124,7 @@
             protobuf
             lua54Packages.lua
             sqlite
+            google-cloud-sdk
           ];
           shellHook = ''
             export KUBECONFIG=/home/janmejay/.kube/config
