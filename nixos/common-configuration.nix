@@ -176,8 +176,9 @@ in {
     linux-manual
     man-pages
     man-pages-posix
-    config.boot.kernelPackages.perf
+    perf
     tor
+    neovim
   ];
 
   environment.etc = {

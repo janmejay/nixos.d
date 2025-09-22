@@ -2,19 +2,8 @@
 let
   warpd = pkgs.callPackage ../pkgs/warpd {};
   hackery = pkgs.callPackage ../pkgs/hackery {};
-  copyq = pkgs.qt6.callPackage ../pkgs/copyq {};
   find-cursor = pkgs.callPackage ../pkgs/find-cursor {};
 
-  rxvt-unicode-unwrapped =
-    let fix-osc-response = pkgs.fetchpatch {
-      name = "fix-osc-responses-with-7-bit-st.patch";
-      url = "https://github.com/exg/rxvt-unicode/commit/417b540d6dba67d440e3617bc2cf6d7cea1ed968.patch";
-      sha256 = "hnRfQc4jPiBrm06nJ3I7PHdypUc3jwnIfQV3uMYz+/Y=";
-    };
-  in
-    pkgs.rxvt-unicode-unwrapped.overrideAttrs (old: {
-      patches = (old.patches or [ ]) ++ [fix-osc-response];
-    });
   dev-utils = builtins.fetchGit {
     url = "https://github.com/janmejay/dev_utils.git";
     rev = "e333ec09a0d1f5d79d63d50c144ea3470ae2a776";
@@ -48,7 +37,6 @@ in {
     # public v
     patchelf
     sysstat
-    dstat
     timg
     xorg.xkill
     moreutils
@@ -84,7 +72,6 @@ in {
     git
     firefox
     google-chrome
-    rxvt-unicode-unwrapped
     tmux
     python3
     lsof
@@ -111,6 +98,9 @@ in {
     vlc
     file
     openjdk
+    neovim
+    fd
+    ripgrep
   ];
 
   home.sessionVariables = {

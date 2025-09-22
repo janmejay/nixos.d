@@ -106,7 +106,7 @@
             kubectl
             kubectx
             minikube
-            go_1_23
+            go_1_25
             delve
             clang
             k9s
@@ -148,7 +148,7 @@
             kubectl
             kubectx
             minikube
-            go_1_23
+            go_1_25
             virtualenv
           ]);
           multiPkgs = pkgs: (with pkgs; [
