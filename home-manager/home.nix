@@ -98,6 +98,7 @@ in {
     vlc
     file
     openjdk
+    nodejs
     neovim
     fd
     ripgrep
