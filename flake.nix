@@ -13,7 +13,11 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixvim.url = "github:nix-community/nixvim";
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
 
     hardware.url = "github:nixos/nixos-hardware";
   };
@@ -55,7 +59,10 @@
       home-mgr-cfg-d = home-manager.lib.homeManagerConfiguration {
         pkgs = pkgsd;
         extraSpecialArgs = { inherit inputs nixvim; };
-        modules = [ ./home-manager/darwin.nix ];
+        modules = [ 
+	  ./home-manager/darwin.nix 
+	  nixvim.homeModules.nixvim
+	];
       };
     in {
 

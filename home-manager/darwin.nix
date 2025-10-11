@@ -3,26 +3,22 @@ let
   user = "janmejay";
 in
 {
+  nixpkgs.config.allowUnfree = true;
   home.username = user;
   home.homeDirectory = "/Users/${user}";
   home.stateVersion = "24.05";
   programs.home-manager.enable = true;
 
-  # Install nixvim distribution
-  programs.nixvim.enable = true;
-  programs.nixvim.package = nixvim.packages.${pkgs.system}.default;
+  programs.nixvim = {
+    enable = true;
+
+    colorschemes.catppuccin.enable = true;
+    plugins.lualine.enable = true;
+  };
 
   # Common macOS tools
   home.packages = with pkgs; [
-    obsidian
-    kitty
-    tmux
-    ripgrep
-    fd
-    bat
-    eza
-    git
-    google-chrome
+    sops
   ];
 
   programs.zsh.enable = true;
