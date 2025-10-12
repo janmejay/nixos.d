@@ -10,15 +10,37 @@ in
   programs.home-manager.enable = true;
 
   programs.nixvim = {
-    enable = true;
+    config = {
+      enable = true;
+      globals.mapleader = " ";
+      colorschemes.catppuccin.enable = true;
+      plugins = { 
+        lualine.enable = true;
+        telescope = {
+          enable = true;
+  	extensions = {
+  	  fzf-native.enable = true;
+  	};
+        };
+        mini = {
+          enable = true;
+          modules.icons = { };
+          mockDevIcons = true;
+        };
+      };
+    };
 
-    colorschemes.catppuccin.enable = true;
-    plugins.lualine.enable = true;
+    options = {
+       relativenumber = true;
+       shiftwidth = 2;
+     };
+
   };
 
   # Common macOS tools
   home.packages = with pkgs; [
     sops
+    # nixvim.packages.${pkgs.system}.default
   ];
 
   programs.zsh.enable = true;

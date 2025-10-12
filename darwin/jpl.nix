@@ -23,20 +23,27 @@
   };
   homebrew = {
     enable = true;
-    casks = [];
+    casks = [ ];
   };
   programs.zsh.enable = true;
-  programs.nixvim = {
-    enable = true;
-
-    colorschemes.catppuccin.enable = true;
-    plugins.lualine.enable = true;
-  };
   nix = {
     enable = true;
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
+  };
+  services.karabiner-elements = {
+    enable = true;
+    package = pkgs.karabiner-elements.overrideAttrs (old: {
+      version = "14.13.0";
+
+      src = pkgs.fetchurl {
+        inherit (old.src) url;
+        hash = "sha256-gmJwoht/Tfm5qMecmq1N6PSAIfWOqsvuHU8VDJY8bLw=";
+      };
+
+      dontFixup = true;
+    });
   };
 
   system.stateVersion = 6;
