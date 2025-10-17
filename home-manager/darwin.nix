@@ -37,6 +37,8 @@ in
 
   };
 
+  home.file.".config/karabiner/assets/complex_modifications/cmd_ctrl.json".source = ../dots/karabiner/complex_modifications/cmd_ctrl.json;
+
   # Common macOS tools
   home.packages = with pkgs; [
     sops
