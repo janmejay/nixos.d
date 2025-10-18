@@ -16,6 +16,7 @@
     bat
     eza
     zsh
+    aerospace
   ];
   users.users.janmejay = {
     home = "/Users/janmejay";
