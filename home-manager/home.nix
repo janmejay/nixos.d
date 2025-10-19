@@ -105,7 +105,7 @@ in {
   ];
 
   home.sessionVariables = {
-    EDITOR="emacs";
+    EDITOR="nvim";
   };
   home.shellAliases = {
     l = "eza";
