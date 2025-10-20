@@ -16,29 +16,15 @@
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
       
-      linux_features = {
-        emacs = true;
-        zsh = true;
-        osx = false;
-        sops = true;
-        squid = true;
-        nixvim = false;
-      };
-
-      osx_features = {
-        emacs = false;
-        zsh = true;
-        osx = true;
-        sops = true;
-        nixvim = true;
-        squid = false;
-      };
-
       home-mgr-cfg = home-manager.lib.homeManagerConfiguration {
           pkgs = pkgs;
-          extraSpecialArgs = { features = linux_features; inherit inputs; };
+          extraSpecialArgs = { inherit inputs; };
           modules = [
-            ./home-manager/home.nix
+           ({ config, lib, ... }: {
+             home.username = "janmejay";
+             home.homeDirectory = "/home/janmejay";
+           })
+            ./home-manager/local_linux.nix
           ];
         };
 
