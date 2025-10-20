@@ -32,14 +32,20 @@
       home-mgr-cfg-l = home-manager.lib.homeManagerConfiguration {
           pkgs = pkgsl;
           extraSpecialArgs = { inherit inputs; };
-          modules = [ ./home-manager/home.nix ];
+          modules = [ 
+            ({ ... }: {
+              home.username = "janmejay";
+              home.homeDirectory = "/home/janmejay";
+            })
+	    ./home-manager/local_linux.nix 
+	  ];
       };
 
       linux-cfg = cfg-file : nixpkgs.lib.nixosSystem {
-          system = linuxSystem;
-          specialArgs = { inherit inputs; };
-          modules = [ cfg-file sops-nix.nixosModules.sops ];
-        };
+        system = linuxSystem;
+        specialArgs = { inherit inputs; };
+        modules = [ cfg-file sops-nix.nixosModules.sops ];
+      };
 
       darwin-cfg = cfg-file: nix-darwin.lib.darwinSystem {
         system = darwinSystem;
@@ -60,6 +66,10 @@
         pkgs = pkgsd;
         extraSpecialArgs = { inherit inputs nixvim; };
         modules = [ 
+            ({ ... }: {
+              home.username = "janmejay";
+              home.homeDirectory = "/Users/janmejay";
+            })
 	  ./home-manager/darwin.nix 
 	  nixvim.homeModules.nixvim
 	];

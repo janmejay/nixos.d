@@ -178,7 +178,6 @@ in {
     man-pages-posix
     perf
     tor
-    neovim
   ];
 
   environment.etc = {
@@ -215,60 +214,14 @@ in {
     enable = true;
     keyboards.default = {
       ids = [ "*" ];
-      extraConfig = ''
-[alt]
-
-[capslock:C]
-
-[code]
-capslock=layer(codeC)
-
-[codeC:C]
-a=home
-b=left
-e=end
-f=right
-n=down
-p=up
-
-[alt+codeC]
-b=C-A-b
-
-[main]
-alt=overload(alt, esc)
-capslock=layer(capslock)
-esc=toggle(nav)
-meta=overload(meta, esc)
-
-[meta:M]
-0=clearm(M-0)
-1=clearm(M-1)
-2=togglem(code, M-2)
-3=clearm(M-3)
-4=clearm(M-4)
-5=clearm(M-5)
-6=clearm(M-6)
-7=clearm(M-7)
-8=clearm(M-8)
-9=clearm(M-9)
-
-[nav]
-alt=overload(navA, esc)
-capslock=layer(navC)
-
-[navA:A]
-b=macro(left 20ms left)
-esc=esc
-f=macro(right 20ms right)
-
-[navC:C]
-a=home
-b=left
-e=end
-f=right
-n=down
-p=up
-'';
+      settings = {
+        main = {
+          capslock = "layer(capslock)";
+          alt = "overload(alt, esc)";
+          esc = "toggle(capslock)"; # before navA this was `capslock`
+        };
+        "capslock:C" = {};
+      };
     };
   };
 
@@ -334,8 +287,6 @@ p=up
   services.ntp.enable = true;
 
   networking.firewall.enable = false;
-  services.k3s.enable = true;
-  services.k3s.role = "server";
 
   virtualisation = {
     docker = {
