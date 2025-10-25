@@ -6,4 +6,5 @@
   emacs.enable = true;
   http-cache.enable = true;
   linux.enable = true;
+  nixvim.enable = false;
 }
