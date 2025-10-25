@@ -67,6 +67,7 @@ in
     dina-font
     tree
     fd
+    yazi
   ];
 
   programs.zsh = {

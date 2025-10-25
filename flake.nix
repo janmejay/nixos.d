@@ -37,8 +37,9 @@
               home.username = "janmejay";
               home.homeDirectory = "/home/janmejay";
             })
-	    ./home-manager/local_linux.nix 
-	  ];
+           ./home-manager/local_linux.nix 
+           nixvim.homeModules.nixvim
+          ];
       };
 
       linux-cfg = cfg-file : nixpkgs.lib.nixosSystem {
@@ -50,15 +51,15 @@
       darwin-cfg = cfg-file: nix-darwin.lib.darwinSystem {
         system = darwinSystem;
         modules = [ 
-	  cfg-file  
-	  nix-homebrew.darwinModules.nix-homebrew {
+          cfg-file  
+          nix-homebrew.darwinModules.nix-homebrew {
             nix-homebrew = {
-	      enable = true;
-	      enableRosetta = true;
-	      user = "janmejay";
-	    };
+              enable = true;
+              enableRosetta = true;
+              user = "janmejay";
+            };
           }
-	];
+        ];
         specialArgs = { inherit inputs; };
       };
 
@@ -70,9 +71,9 @@
               home.username = "janmejay";
               home.homeDirectory = "/Users/janmejay";
             })
-	  ./home-manager/darwin.nix 
-	  nixvim.homeModules.nixvim
-	];
+            ./home-manager/darwin.nix 
+            nixvim.homeModules.nixvim
+        ];
       };
     in {
 
@@ -96,7 +97,7 @@
         "janmejay@obsl" = home-mgr-cfg-l;
         "janmejay@jpl" = home-mgr-cfg-d;
       };
-      
+
       devShells = (import ./modules/shells.nix {nixpkgs = nixpkgs;}).devShells;
    };
 }
