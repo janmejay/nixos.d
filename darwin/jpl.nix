@@ -6,7 +6,7 @@
   environment.systemPackages = with pkgs; [
     obsidian
     google-chrome
-    kitty
+    wezterm
     git
     neovim
     home-manager
@@ -29,6 +29,9 @@
     	"karabiner-elements"
 	"intellij-idea-ce"
 	"shortcat"
+	#"scoot"
+	#"mouseless"
+	#"homerow"
     ];
   };
   programs.zsh.enable = true;

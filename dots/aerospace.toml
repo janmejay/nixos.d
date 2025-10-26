@@ -92,7 +92,7 @@ automatically-unhide-macos-hidden-apps = false
     # '''
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#layout
-    alt-slash = 'layout tiles horizontal vertical'
+    alt-space = 'layout tiles horizontal vertical'
     alt-comma = 'layout accordion horizontal vertical'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
@@ -140,6 +140,17 @@ automatically-unhide-macos-hidden-apps = false
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
     alt-shift-semicolon = 'mode service'
+
+[workspace-to-monitor-force-assignment]
+  1 = [1, 2, 'main']
+  2 = [2, 1, 'main']
+  3 = [2, 1, 'main']
+  4 = [2, 'main']
+  5 = [2, 'main']
+  6 = [1, 2, 'main']
+  7 = [1, 2, 'main']
+  8 = [1, 2, 'main']
+  9 = [1, 2, 'main']
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
